@@ -1,6 +1,5 @@
 # FlowLayout2
-[![](https://jitpack.io/v/yangsanning/FlowLayout2.svg)](https://jitpack.io/#yangsanning/FlowLayout2)
-[![API](https://img.shields.io/badge/API-19%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=19)
+基于https://github.com/yangsanning/FlowLayout2 修改，增加了行数限制
 
 ## 效果预览
 
@@ -87,7 +86,7 @@
 ```
 
 
-### 2. 配置属性([Attributes](https://github.com/yangsanning/FlowLayout2/blob/master/flowlayout2/src/main/res/values/attrs.xml))
+### 2. 配置属性
 
 #### FlowLayout2
 |name|format|description|
@@ -95,26 +94,4 @@
 | fl2_column_space | dimension | 列的间距 |
 | fl2_row_space | dimension | 行的间距 |
 | fl2_is_last_avg | boolean | 最后一行是否均分 |
-
-### 3.添加方法
-
-#### 3.1 添加仓库
-
-在项目的 `build.gradle` 文件中配置仓库地址。
-
-```android
-allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
-}
-```
-
-#### 3.2 添加项目依赖
-
-在需要添加依赖的 Module 下添加以下信息，使用方式和普通的远程仓库一样。
-
-```android
-implementation 'com.github.yangsanning:FlowLayout2:1.0.0'
-```
+| maxLines | integer | 行数，0不限制行数 |
