@@ -1,5 +1,6 @@
 package ysn.com.view.flowlayout2.bean;
 
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class FlowLine2 {
      */
     private boolean isLastAvg;
     private boolean isLast;
+    private int maxLines;
 
     private List<View> viewList = new ArrayList<>();
 
@@ -88,16 +90,21 @@ public class FlowLine2 {
             // 获取宽高
             int measuredWidth = view.getMeasuredWidth();
             int measuredHeight = view.getMeasuredHeight();
-
-            if (isLast && !isLastAvg) {
-                // 重新测量
-                view.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth, View.MeasureSpec.EXACTLY),
-                    View.MeasureSpec.makeMeasureSpec(measuredHeight, View.MeasureSpec.EXACTLY));
-            } else {
-                // 重新测量
-                view.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth + avg, View.MeasureSpec.EXACTLY),
-                    View.MeasureSpec.makeMeasureSpec(measuredHeight, View.MeasureSpec.EXACTLY));
-            }
+            Log.e("line",isLast+"");
+           if (maxLines!=0){
+               view.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth, View.MeasureSpec.EXACTLY),
+                       View.MeasureSpec.makeMeasureSpec(measuredHeight, View.MeasureSpec.EXACTLY));
+           }else {
+               if (isLast && !isLastAvg) {
+                   // 重新测量
+                   view.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth, View.MeasureSpec.EXACTLY),
+                           View.MeasureSpec.makeMeasureSpec(measuredHeight, View.MeasureSpec.EXACTLY));
+               } else {
+                   // 重新测量
+                   view.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth + avg, View.MeasureSpec.EXACTLY),
+                           View.MeasureSpec.makeMeasureSpec(measuredHeight, View.MeasureSpec.EXACTLY));
+               }
+           }
 
             // 重新获取宽度值
             measuredWidth = view.getMeasuredWidth();
@@ -156,5 +163,13 @@ public class FlowLine2 {
 
     public void setLast(boolean last) {
         isLast = last;
+    }
+
+    public int getMaxLines() {
+        return maxLines;
+    }
+
+    public void setMaxLines(int maxLines) {
+        this.maxLines = maxLines;
     }
 }

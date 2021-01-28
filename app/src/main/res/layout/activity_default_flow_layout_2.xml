@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:maxLines="2"
         ysn:fl2_column_space="10dp"
         ysn:fl2_is_last_avg="false"
         ysn:fl2_row_space="10dp" />

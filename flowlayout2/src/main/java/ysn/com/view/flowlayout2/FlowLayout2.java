@@ -113,10 +113,10 @@ public class FlowLayout2 extends ViewGroup {
                     }
                 }
             }
-
-            if (i == childCount - 1) {
-                flowLine2.setLast(true);
-            }
+            flowLine2.setMaxLines(maxLines);
+        }
+        if (maxLines!=0){
+            flowLine2List.get(flowLine2List.size()-1).setLast(true);
         }
     }
 
